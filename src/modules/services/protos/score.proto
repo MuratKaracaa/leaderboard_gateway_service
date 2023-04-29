@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package score;
+
+message SaveScoreRequest {
+    string userId = 1;
+    uint32 score = 2;
+}
+message SaveScoreResponse {}
+
+message GetScoreMapRequest{
+    string userId = 1;
+}
+message UserScore {
+    uint32 rank = 1;
+    uint32 score = 2;
+}
+
+message GetScoreMapResponse {
+    map<string, UserScore> scoreMap = 1;
+    map<string, UserScore> scoreMapSelf = 2;
+}
+
+service ScoreService {
+    rpc SaveScore(SaveScoreRequest) returns (SaveScoreResponse){};
+    rpc GetScoreMap(GetScoreMapRequest) returns (GetScoreMapResponse){};
+}

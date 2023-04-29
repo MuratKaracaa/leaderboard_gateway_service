@@ -1,0 +1,4 @@
+export default {
+  SCORE_CLIENT: 'SCORE_CLIENT',
+  USER_CLIENT: 'USER_CLIENT',
+};
